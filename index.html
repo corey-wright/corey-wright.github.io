@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style> 
-.fixed-bg {
+<title>Don't Touch My Truck</title>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
   background-image: url("bg.jpg");
-  min-height: 500px;
-  background-attachment: fixed;
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,6 +28,10 @@
 </style>
 </head>
 <body>
-<div class="fixed-bg"></div>
+<div class="bg"></div>
+<audio id="myAudio" controls>
+    <source src="dtmt.ogg" type="audio/ogg">
+    <source src="dtmt.mp3" type="audio/mpeg">
+  </audio>
 </body>
 </html>
