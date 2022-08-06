@@ -1,37 +1,145 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Don't Touch My Truck</title>
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-}
+    <title>Don't Touch My Truck</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
 
-.bg {
-  /* The image used */
-  background-image: url("bg.jpg");
+        .bg {
+            /* The image used */
+            background-image: url("bg.jpg");
 
-  /* Full height */
-  height: 100%; 
+            /* Full height */
+            height: 100%;
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-</style>
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: rgb(255, 255, 255);
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            z-index: 100;
+        }
+
+        #popup {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: #fff;
+            width: 500px;
+            height: 500px;
+            margin-left: -250px;
+            /*Half the value of width to center div*/
+            margin-top: -250px;
+            /*Half the value of height to center div*/
+            z-index: 200;
+        }
+
+        .popupcontent {
+            padding: 10px;
+        }
+
+        #button {
+            cursor: pointer;
+        }
+
+        .DmaxButton {
+            background-color: rgb(0, 255, 0);
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .TritonButton {
+            background-color: rgb(255, 0, 0);
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
 </head>
+
 <body>
-<div class="bg"></div>
-<audio id="myAudio" controls autoplay hidden>
-    <source src="dtmt.ogg" type="audio/ogg">
-    <source src="dtmt.mp3" type="audio/mpeg">
-  </audio>
+    <div class="bg"></div>
+    <div id="overlay"></div>
+    <div id="popup">
+        <div class="popupcontent">
+            <h1>Which is Superior?</h1>
+            <button onclick="Triton()" type="button" class="TritonButton">Mitsubishi Triton</button>
+            <button onclick="Dmax()" type="button" class="DmaxButton">Isuzu Dmax</button>
+        </div>
+    </div>
+
+    <audio id="dtmt" controls hidden>
+        <source src="dtmt.ogg" type="audio/ogg">
+        <source src="dtmt.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gay" controls hidden>
+        <source src="gay.ogg" type="audio/ogg">
+        <source src="gay.mp3" type="audio/mpeg">
+    </audio>
+
+    <script type="text/javascript">
+        var closePopup = document.getElementById("popupclose");
+        var overlay = document.getElementById("overlay");
+        var popup = document.getElementById("popup");
+        var button = document.getElementById("button");
+        var TritonAudio = document.getElementById("gay");
+        var DmaxAudio = document.getElementById("dtmt");
+
+        window.onload = function () {
+            overlay.style.display = 'block';
+            popup.style.display = 'block';
+        }
+
+        closePopup.onclick = function () {
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+        };
+
+        function Triton() {
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+            TritonAudio.play();
+            alert("Do better!");
+        }
+
+        function Dmax() {
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+            DmaxAudio.play();
+            alert("You better not touch my truck!");
+        };
+    </script>
 </body>
+
 </html>
