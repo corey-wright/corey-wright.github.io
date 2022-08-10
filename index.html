@@ -45,7 +45,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            background: #fff;
+            background: rgb(14, 6, 6)3, 2, 2);
             width: 500px;
             height: 500px;
             margin-left: -250px;
@@ -92,7 +92,6 @@
     <div class="bg"></div>
     <div id="overlay"></div>
     <div id="popup">
-        <div class="popupcontent">
             <h1>Which is Superior?</h1>
             <button onclick="Triton()" type="button" class="TritonButton">Mitsubishi Triton</button>
             <button onclick="Dmax()" type="button" class="DmaxButton">Isuzu Dmax</button>
@@ -127,10 +126,9 @@
         };
 
         function Triton() {
-            overlay.style.display = 'none';
-            popup.style.display = 'none';
             TritonAudio.play();
-            alert("Do better!");
+            alert("Sorry to hear...");
+            location.replace("https://dinkyone.com/")
         }
 
         function Dmax() {
